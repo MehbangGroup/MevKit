@@ -7,8 +7,8 @@ Visit video tutorials on STM32 embedded coding using STM32CubeMX on [Mehbang](ht
 
 Be sure to wait for load PyV8 binary. If it persists, please start an issue [here](https://github.com/waldyr/Sublime-Installer/issues/new) and let me know what happened.
 
-[hhere](http://mehbang.group)
-[herke](http://github.com/waldyr/Sublime-Installer/issues/new)
+[Mehbang](http://mehbang.group)
+[Mehbang](http://github.com/waldyr/Sublime-Installer/issues/new)
 
 
 # License

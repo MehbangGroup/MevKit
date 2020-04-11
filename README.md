@@ -5,5 +5,8 @@
 This page holds Mehbang Evaluation Kit (MevKit) sample codes.
 Visit video tutorials on STM32 embedded coding using STM32CubeMX on [Mehbang website](http://mehbang.group/).
 
+Be sure to wait for load PyV8 binary. If it persists, please start an issue [here](https://github.com/waldyr/Sublime-Installer/issues/new) and let me know what happened.
+
+
 # License
 This project is licensed under the MIT License - see the LICENSE.md file for details.

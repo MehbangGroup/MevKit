@@ -73,9 +73,9 @@ void PixelInit(void)
 
 void PixelRGB(RGB color)
 {
-	TIM3->CCR2 = color.g * 100;
-	TIM3->CCR3 = color.b * 100;
-	TIM3->CCR4 = color.r * 100;
+	TIM3->CCR2 = color.g * 255;
+	TIM3->CCR3 = color.b * 255;
+	TIM3->CCR4 = color.r * 255;
 }
 
 void PixelHSV(HSV color)

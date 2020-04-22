@@ -6,12 +6,12 @@
 #include "main.h"
 
 /* Private define ------------------------------------------------------------*/
-#define SetCLK  CLK_GPIO_Port->BSRR = CLK_Pin
-#define ClrCLK  CLK_GPIO_Port->BRR  = CLK_Pin
-#define SetLAT  LAT_GPIO_Port->BSRR = LAT_Pin
-#define ClrLAT  LAT_GPIO_Port->BRR  = LAT_Pin
-#define SetSDI  SDI_GPIO_Port->BSRR = SDI_Pin
-#define ClrSDI  SDI_GPIO_Port->BRR  = SDI_Pin
+#define SetCLK()  (CLK_GPIO_Port->BSRR = CLK_Pin)
+#define ClrCLK()  (CLK_GPIO_Port->BRR  = CLK_Pin)
+#define SetLAT()  (LAT_GPIO_Port->BSRR = LAT_Pin)
+#define ClrLAT()  (LAT_GPIO_Port->BRR  = LAT_Pin)
+#define SetSDI()  (SDI_GPIO_Port->BSRR = SDI_Pin)
+#define ClrSDI()  (SDI_GPIO_Port->BRR  = SDI_Pin)
 
 /* Exported types ------------------------------------------------------------*/
 typedef enum
@@ -19,9 +19,15 @@ typedef enum
   LED_BR, LED_UR, LED_BL, LED_UL
 } DISPLAYLED;
 
+typedef enum
+{
+  DP_1, DP_2, DP_3, DP_4, DP_N
+} DISPLAYDP;
+
 /* Exported functions ------------------------------------------------------- */
 void DisplayRun(void);
 void DisplayLed(int led, int state);
 void DisplayString(char* text);
+void DisplayStringWithDP(char* text, int dpLoc);
 
 #endif

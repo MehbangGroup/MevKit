@@ -20,13 +20,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "../../bsp/display.h"
-#include "../../bsp/pixel.h"
+#include "..\..\bsp\display.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +44,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile HSV pixel = { .s = 1, .v = 0.3 };
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,9 +57,7 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 void HAL_SYSTICK_Callback(void)
 {
-	DisplayRun();
-	pixel.h = HAL_GetTick() / 10 % 360;
-	PixelHSV(pixel);
+  DisplayRun();
 }
 /* USER CODE END 0 */
 
@@ -94,27 +90,22 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  HAL_Delay(100);
-  PixelInit();
-  DisplayString("5230");
-  DISPLAYLED leds[] = { LED_UL, LED_BL, LED_BR, LED_UR };
-  int led_state = 1;
+  DisplayString("Helo");
+  DisplayLed(LED_BL, 0);
+  DisplayLed(LED_BR, 0);
+  DisplayLed(LED_UL, 1);
+  DisplayLed(LED_UR, 1);
   /* USER CODE END 2 */
  
- 
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    for (int i = 0; i < 4; i++)
-    {
-      DisplayLed(leds[i], led_state);
-      HAL_Delay(300);
-    }
-    led_state = !led_state;
+    if (HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin) == GPIO_PIN_RESET)
+      DisplayStringWithDP("314", DP_1);
+    else if (HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin) == GPIO_PIN_RESET)
+      DisplayStringWithDP("2718", DP_1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

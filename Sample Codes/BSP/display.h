@@ -29,5 +29,6 @@ void DisplayRun(void);
 void DisplayLed(int led, int state);
 void DisplayString(char* text);
 void DisplayStringWithDP(char* text, int dpLoc);
+void DisplayNumber(int num);
 
 #endif

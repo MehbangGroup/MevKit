@@ -70,6 +70,17 @@ void DisplayStringWithDP(char* text, int dpLoc)
   }
 }
 
+void DisplayNumber(int num)
+{
+  char str[] = "0000";
+  for (int i = 0; num > 0; i++)
+  {
+    str[3 - i] += num % 10;
+    num /= 10;
+  }
+  DisplayString(str);
+}
+
 void DisplayLed(int led, int state)
 {
   if (LED_BR <= led && led <= LED_UL)

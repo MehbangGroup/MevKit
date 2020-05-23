@@ -1,0 +1,9 @@
+In order to import "TestCubeMonitor.json" in to STM32CubeMonitor, please do the following:
+
+1) Open STM32CubeMonitor.
+2) In the top right of STM32CubeMonitor, click on the sqare button (with three blue flat lines icon) in the right of the "Deploy" and "Dashboard" buttons.
+3) Click "Import".
+4) Choose "Clipboard" in the selector at the left side of the page.
+5) Click "select a file to import".
+6) Navigate to and select "TestCubeMonitor.json".
+7) Enjoy!

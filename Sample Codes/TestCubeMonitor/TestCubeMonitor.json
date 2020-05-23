@@ -1,0 +1,2425 @@
+[
+    {
+        "id": "9f018cd2.b29c4",
+        "type": "tab",
+        "label": "Basic_Flow",
+        "disabled": false,
+        "info": "# Basic flow to start with STM32CubeMonitor."
+    },
+    {
+        "id": "8f38e45b.ff6848",
+        "type": "ui_chartst",
+        "z": "9f018cd2.b29c4",
+        "group": "e9d6d5ce.127558",
+        "name": "myChart",
+        "order": 5,
+        "width": 15,
+        "height": 9,
+        "chartType": "line",
+        "curveType": "linear",
+        "duration": "10",
+        "ymin": "",
+        "ymax": "",
+        "x": 580,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8e9f1e95.8eb1e",
+        "type": "acquisition out",
+        "z": "9f018cd2.b29c4",
+        "name": "myProbe_Out",
+        "probeconfig": "1f3a1205.b49e9e",
+        "x": 640,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "21c5ae41.a2e342",
+        "type": "acquisition in",
+        "z": "9f018cd2.b29c4",
+        "name": "myProbe_In",
+        "probeconfig": "1f3a1205.b49e9e",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "93be7965.8a49a8",
+                "54a62262.540edc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "974d7270.97dc9",
+        "type": "variables",
+        "z": "9f018cd2.b29c4",
+        "groupname": "TestMonitor",
+        "accesspoint": 0,
+        "execonfig": "a13a1b39.447f28",
+        "variablelist": [],
+        "triggerstartmode": "manual",
+        "triggername": "Vals[0]",
+        "triggerthreshold": "30000",
+        "frequency": "",
+        "frequencyType": "0",
+        "snapshotheader": "",
+        "mode": "direct",
+        "lastImportedTime": 1589991017085,
+        "openStatus": true,
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "8e9f1e95.8eb1e"
+            ]
+        ]
+    },
+    {
+        "id": "a925fc3f.b1d0d",
+        "type": "ui_button",
+        "z": "9f018cd2.b29c4",
+        "name": "",
+        "group": "e9d6d5ce.127558",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Graphs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "x": 350,
+        "y": 360,
+        "wires": [
+            [
+                "8f38e45b.ff6848"
+            ]
+        ]
+    },
+    {
+        "id": "4ccc94e5.fb3ecc",
+        "type": "ui_button",
+        "z": "9f018cd2.b29c4",
+        "name": "",
+        "group": "e9d6d5ce.127558",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "START Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "start",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "974d7270.97dc9",
+                "6d2598e5.66bcc8"
+            ]
+        ]
+    },
+    {
+        "id": "6dfdf910.bbc858",
+        "type": "ui_button",
+        "z": "9f018cd2.b29c4",
+        "name": "",
+        "group": "e9d6d5ce.127558",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "label": "STOP Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "stop",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "974d7270.97dc9",
+                "6d2598e5.66bcc8"
+            ]
+        ]
+    },
+    {
+        "id": "93be7965.8a49a8",
+        "type": "processing",
+        "z": "9f018cd2.b29c4",
+        "groupname": "TestMonitor",
+        "groupid": "974d7270.97dc9",
+        "expressions": [],
+        "statistics": [],
+        "logmode": "no",
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "8f38e45b.ff6848"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6d2598e5.66bcc8",
+        "type": "variables",
+        "z": "9f018cd2.b29c4",
+        "groupname": "TestEditor",
+        "accesspoint": 0,
+        "execonfig": "f56b71ea.03878",
+        "variablelist": [],
+        "triggerstartmode": "manual",
+        "triggername": "Message[0]",
+        "triggerthreshold": "",
+        "frequency": "",
+        "frequencyType": "0",
+        "snapshotheader": "",
+        "mode": "direct",
+        "lastImportedTime": 1589991196702,
+        "openStatus": false,
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "8e9f1e95.8eb1e",
+                "2fbfa09c.394b"
+            ]
+        ]
+    },
+    {
+        "id": "2fbfa09c.394b",
+        "type": "ui_write",
+        "z": "9f018cd2.b29c4",
+        "group": "e9d6d5ce.127558",
+        "name": "",
+        "order": 6,
+        "width": 5,
+        "height": 5,
+        "x": 560,
+        "y": 220,
+        "wires": [
+            [
+                "8e9f1e95.8eb1e"
+            ]
+        ]
+    },
+    {
+        "id": "4ac4d849.86e068",
+        "type": "function",
+        "z": "9f018cd2.b29c4",
+        "name": "Drawer",
+        "func": "if (global.get(\"myarray\") === undefined)\n    global.set(\"myarray\", new Array(4));\n\nvar varname = msg.payload.variablename;\nvar idx1 = varname.indexOf('[');\nvar idx2 = varname.indexOf(']');\nvar x = varname.substring(idx1 + 1, idx2);\n\nvar myarray = global.get(\"myarray\");\nmyarray[x] = msg.payload.variabledata[0].y;\nglobal.set(\"myarray\", myarray);\n\nvar str = \"\";\nfor (var i = 0; i < myarray.length; i++)\n    str += String.fromCharCode(myarray[i]);\n\nmsg.txt = str;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480,
+        "y": 420,
+        "wires": [
+            [
+                "bb630b9f.1f74e8"
+            ]
+        ]
+    },
+    {
+        "id": "bb630b9f.1f74e8",
+        "type": "ui_text",
+        "z": "9f018cd2.b29c4",
+        "group": "e9d6d5ce.127558",
+        "order": 7,
+        "width": 5,
+        "height": 4,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.txt}}",
+        "layout": "row-spread",
+        "x": 680,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "54a62262.540edc",
+        "type": "processing",
+        "z": "9f018cd2.b29c4",
+        "groupname": "TestEditor",
+        "groupid": "6d2598e5.66bcc8",
+        "expressions": [],
+        "statistics": [],
+        "logmode": "no",
+        "x": 320,
+        "y": 440,
+        "wires": [
+            [
+                "4ac4d849.86e068"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e9d6d5ce.127558",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chart",
+        "tab": "4b293066.621a8",
+        "order": 1,
+        "disp": true,
+        "width": 20,
+        "collapse": false
+    },
+    {
+        "id": "1f3a1205.b49e9e",
+        "type": "probe",
+        "z": "",
+        "probeid": "52FF6C067878545115461667",
+        "probename": "ST-Link v2 (...61667)",
+        "protocol": "SWD",
+        "frequency": "1.8 MHz - Default",
+        "probeproperty": "{\"SWD\":[\"4.6 MHz\",\"1.8 MHz - Default\",\"950 kHz\",\"400 kHz\",\"150 kHz\"],\"JTAG\":[\"18 MHz\",\"9 MHz\",\"4.5 MHz\",\"2.25 MHz\",\"1.12 MHz - Default\",\"560 kHz\",\"280 kHz\",\"140 kHz\"]}",
+        "probeversion": "ST Link firmware version V2.J35",
+        "connectionType": "p2p"
+    },
+    {
+        "id": "a13a1b39.447f28",
+        "type": "exe-config",
+        "z": "",
+        "name": "CubeMonitorTest",
+        "exefile": "D:\\Access\\Desktop\\test\\TestCubeMonitor\\MDK-ARM\\TestCubeMonitor\\TestCubeMonitor.axf",
+        "exefolder": "D:\\Access\\Desktop\\test\\TestCubeMonitor\\MDK-ARM\\TestCubeMonitor",
+        "exevariablelist": [
+            {
+                "address": "0x08001794",
+                "name": "AHBPrescTable[0]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x0800179e",
+                "name": "AHBPrescTable[10]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x0800179f",
+                "name": "AHBPrescTable[11]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a0",
+                "name": "AHBPrescTable[12]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a1",
+                "name": "AHBPrescTable[13]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a2",
+                "name": "AHBPrescTable[14]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a3",
+                "name": "AHBPrescTable[15]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x08001795",
+                "name": "AHBPrescTable[1]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x08001796",
+                "name": "AHBPrescTable[2]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x08001797",
+                "name": "AHBPrescTable[3]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x08001798",
+                "name": "AHBPrescTable[4]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x08001799",
+                "name": "AHBPrescTable[5]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x0800179a",
+                "name": "AHBPrescTable[6]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x0800179b",
+                "name": "AHBPrescTable[7]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x0800179c",
+                "name": "AHBPrescTable[8]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x0800179d",
+                "name": "AHBPrescTable[9]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a4",
+                "name": "APBPrescTable[0]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a5",
+                "name": "APBPrescTable[1]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a6",
+                "name": "APBPrescTable[2]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a7",
+                "name": "APBPrescTable[3]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a8",
+                "name": "APBPrescTable[4]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017a9",
+                "name": "APBPrescTable[5]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017aa",
+                "name": "APBPrescTable[6]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x080017ab",
+                "name": "APBPrescTable[7]",
+                "type": 1,
+                "checked": false
+            },
+            {
+                "address": "0x08001714",
+                "name": "AsciiTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x08001778",
+                "name": "AsciiTable[100]",
+                "type": 1
+            },
+            {
+                "address": "0x08001779",
+                "name": "AsciiTable[101]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177a",
+                "name": "AsciiTable[102]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177b",
+                "name": "AsciiTable[103]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177c",
+                "name": "AsciiTable[104]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177d",
+                "name": "AsciiTable[105]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177e",
+                "name": "AsciiTable[106]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177f",
+                "name": "AsciiTable[107]",
+                "type": 1
+            },
+            {
+                "address": "0x08001780",
+                "name": "AsciiTable[108]",
+                "type": 1
+            },
+            {
+                "address": "0x08001781",
+                "name": "AsciiTable[109]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171e",
+                "name": "AsciiTable[10]",
+                "type": 1
+            },
+            {
+                "address": "0x08001782",
+                "name": "AsciiTable[110]",
+                "type": 1
+            },
+            {
+                "address": "0x08001783",
+                "name": "AsciiTable[111]",
+                "type": 1
+            },
+            {
+                "address": "0x08001784",
+                "name": "AsciiTable[112]",
+                "type": 1
+            },
+            {
+                "address": "0x08001785",
+                "name": "AsciiTable[113]",
+                "type": 1
+            },
+            {
+                "address": "0x08001786",
+                "name": "AsciiTable[114]",
+                "type": 1
+            },
+            {
+                "address": "0x08001787",
+                "name": "AsciiTable[115]",
+                "type": 1
+            },
+            {
+                "address": "0x08001788",
+                "name": "AsciiTable[116]",
+                "type": 1
+            },
+            {
+                "address": "0x08001789",
+                "name": "AsciiTable[117]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178a",
+                "name": "AsciiTable[118]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178b",
+                "name": "AsciiTable[119]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171f",
+                "name": "AsciiTable[11]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178c",
+                "name": "AsciiTable[120]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178d",
+                "name": "AsciiTable[121]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178e",
+                "name": "AsciiTable[122]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178f",
+                "name": "AsciiTable[123]",
+                "type": 1
+            },
+            {
+                "address": "0x08001790",
+                "name": "AsciiTable[124]",
+                "type": 1
+            },
+            {
+                "address": "0x08001791",
+                "name": "AsciiTable[125]",
+                "type": 1
+            },
+            {
+                "address": "0x08001792",
+                "name": "AsciiTable[126]",
+                "type": 1
+            },
+            {
+                "address": "0x08001793",
+                "name": "AsciiTable[127]",
+                "type": 1
+            },
+            {
+                "address": "0x08001720",
+                "name": "AsciiTable[12]",
+                "type": 1
+            },
+            {
+                "address": "0x08001721",
+                "name": "AsciiTable[13]",
+                "type": 1
+            },
+            {
+                "address": "0x08001722",
+                "name": "AsciiTable[14]",
+                "type": 1
+            },
+            {
+                "address": "0x08001723",
+                "name": "AsciiTable[15]",
+                "type": 1
+            },
+            {
+                "address": "0x08001724",
+                "name": "AsciiTable[16]",
+                "type": 1
+            },
+            {
+                "address": "0x08001725",
+                "name": "AsciiTable[17]",
+                "type": 1
+            },
+            {
+                "address": "0x08001726",
+                "name": "AsciiTable[18]",
+                "type": 1
+            },
+            {
+                "address": "0x08001727",
+                "name": "AsciiTable[19]",
+                "type": 1
+            },
+            {
+                "address": "0x08001715",
+                "name": "AsciiTable[1]",
+                "type": 1
+            },
+            {
+                "address": "0x08001728",
+                "name": "AsciiTable[20]",
+                "type": 1
+            },
+            {
+                "address": "0x08001729",
+                "name": "AsciiTable[21]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172a",
+                "name": "AsciiTable[22]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172b",
+                "name": "AsciiTable[23]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172c",
+                "name": "AsciiTable[24]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172d",
+                "name": "AsciiTable[25]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172e",
+                "name": "AsciiTable[26]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172f",
+                "name": "AsciiTable[27]",
+                "type": 1
+            },
+            {
+                "address": "0x08001730",
+                "name": "AsciiTable[28]",
+                "type": 1
+            },
+            {
+                "address": "0x08001731",
+                "name": "AsciiTable[29]",
+                "type": 1
+            },
+            {
+                "address": "0x08001716",
+                "name": "AsciiTable[2]",
+                "type": 1
+            },
+            {
+                "address": "0x08001732",
+                "name": "AsciiTable[30]",
+                "type": 1
+            },
+            {
+                "address": "0x08001733",
+                "name": "AsciiTable[31]",
+                "type": 1
+            },
+            {
+                "address": "0x08001734",
+                "name": "AsciiTable[32]",
+                "type": 1
+            },
+            {
+                "address": "0x08001735",
+                "name": "AsciiTable[33]",
+                "type": 1
+            },
+            {
+                "address": "0x08001736",
+                "name": "AsciiTable[34]",
+                "type": 1
+            },
+            {
+                "address": "0x08001737",
+                "name": "AsciiTable[35]",
+                "type": 1
+            },
+            {
+                "address": "0x08001738",
+                "name": "AsciiTable[36]",
+                "type": 1
+            },
+            {
+                "address": "0x08001739",
+                "name": "AsciiTable[37]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173a",
+                "name": "AsciiTable[38]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173b",
+                "name": "AsciiTable[39]",
+                "type": 1
+            },
+            {
+                "address": "0x08001717",
+                "name": "AsciiTable[3]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173c",
+                "name": "AsciiTable[40]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173d",
+                "name": "AsciiTable[41]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173e",
+                "name": "AsciiTable[42]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173f",
+                "name": "AsciiTable[43]",
+                "type": 1
+            },
+            {
+                "address": "0x08001740",
+                "name": "AsciiTable[44]",
+                "type": 1
+            },
+            {
+                "address": "0x08001741",
+                "name": "AsciiTable[45]",
+                "type": 1
+            },
+            {
+                "address": "0x08001742",
+                "name": "AsciiTable[46]",
+                "type": 1
+            },
+            {
+                "address": "0x08001743",
+                "name": "AsciiTable[47]",
+                "type": 1
+            },
+            {
+                "address": "0x08001744",
+                "name": "AsciiTable[48]",
+                "type": 1
+            },
+            {
+                "address": "0x08001745",
+                "name": "AsciiTable[49]",
+                "type": 1
+            },
+            {
+                "address": "0x08001718",
+                "name": "AsciiTable[4]",
+                "type": 1
+            },
+            {
+                "address": "0x08001746",
+                "name": "AsciiTable[50]",
+                "type": 1
+            },
+            {
+                "address": "0x08001747",
+                "name": "AsciiTable[51]",
+                "type": 1
+            },
+            {
+                "address": "0x08001748",
+                "name": "AsciiTable[52]",
+                "type": 1
+            },
+            {
+                "address": "0x08001749",
+                "name": "AsciiTable[53]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174a",
+                "name": "AsciiTable[54]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174b",
+                "name": "AsciiTable[55]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174c",
+                "name": "AsciiTable[56]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174d",
+                "name": "AsciiTable[57]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174e",
+                "name": "AsciiTable[58]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174f",
+                "name": "AsciiTable[59]",
+                "type": 1
+            },
+            {
+                "address": "0x08001719",
+                "name": "AsciiTable[5]",
+                "type": 1
+            },
+            {
+                "address": "0x08001750",
+                "name": "AsciiTable[60]",
+                "type": 1
+            },
+            {
+                "address": "0x08001751",
+                "name": "AsciiTable[61]",
+                "type": 1
+            },
+            {
+                "address": "0x08001752",
+                "name": "AsciiTable[62]",
+                "type": 1
+            },
+            {
+                "address": "0x08001753",
+                "name": "AsciiTable[63]",
+                "type": 1
+            },
+            {
+                "address": "0x08001754",
+                "name": "AsciiTable[64]",
+                "type": 1
+            },
+            {
+                "address": "0x08001755",
+                "name": "AsciiTable[65]",
+                "type": 1
+            },
+            {
+                "address": "0x08001756",
+                "name": "AsciiTable[66]",
+                "type": 1
+            },
+            {
+                "address": "0x08001757",
+                "name": "AsciiTable[67]",
+                "type": 1
+            },
+            {
+                "address": "0x08001758",
+                "name": "AsciiTable[68]",
+                "type": 1
+            },
+            {
+                "address": "0x08001759",
+                "name": "AsciiTable[69]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171a",
+                "name": "AsciiTable[6]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175a",
+                "name": "AsciiTable[70]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175b",
+                "name": "AsciiTable[71]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175c",
+                "name": "AsciiTable[72]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175d",
+                "name": "AsciiTable[73]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175e",
+                "name": "AsciiTable[74]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175f",
+                "name": "AsciiTable[75]",
+                "type": 1
+            },
+            {
+                "address": "0x08001760",
+                "name": "AsciiTable[76]",
+                "type": 1
+            },
+            {
+                "address": "0x08001761",
+                "name": "AsciiTable[77]",
+                "type": 1
+            },
+            {
+                "address": "0x08001762",
+                "name": "AsciiTable[78]",
+                "type": 1
+            },
+            {
+                "address": "0x08001763",
+                "name": "AsciiTable[79]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171b",
+                "name": "AsciiTable[7]",
+                "type": 1
+            },
+            {
+                "address": "0x08001764",
+                "name": "AsciiTable[80]",
+                "type": 1
+            },
+            {
+                "address": "0x08001765",
+                "name": "AsciiTable[81]",
+                "type": 1
+            },
+            {
+                "address": "0x08001766",
+                "name": "AsciiTable[82]",
+                "type": 1
+            },
+            {
+                "address": "0x08001767",
+                "name": "AsciiTable[83]",
+                "type": 1
+            },
+            {
+                "address": "0x08001768",
+                "name": "AsciiTable[84]",
+                "type": 1
+            },
+            {
+                "address": "0x08001769",
+                "name": "AsciiTable[85]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176a",
+                "name": "AsciiTable[86]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176b",
+                "name": "AsciiTable[87]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176c",
+                "name": "AsciiTable[88]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176d",
+                "name": "AsciiTable[89]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171c",
+                "name": "AsciiTable[8]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176e",
+                "name": "AsciiTable[90]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176f",
+                "name": "AsciiTable[91]",
+                "type": 1
+            },
+            {
+                "address": "0x08001770",
+                "name": "AsciiTable[92]",
+                "type": 1
+            },
+            {
+                "address": "0x08001771",
+                "name": "AsciiTable[93]",
+                "type": 1
+            },
+            {
+                "address": "0x08001772",
+                "name": "AsciiTable[94]",
+                "type": 1
+            },
+            {
+                "address": "0x08001773",
+                "name": "AsciiTable[95]",
+                "type": 1
+            },
+            {
+                "address": "0x08001774",
+                "name": "AsciiTable[96]",
+                "type": 1
+            },
+            {
+                "address": "0x08001775",
+                "name": "AsciiTable[97]",
+                "type": 1
+            },
+            {
+                "address": "0x08001776",
+                "name": "AsciiTable[98]",
+                "type": 1
+            },
+            {
+                "address": "0x08001777",
+                "name": "AsciiTable[99]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171d",
+                "name": "AsciiTable[9]",
+                "type": 1
+            },
+            {
+                "address": "0x20000050",
+                "name": "hadc1.DMA_Handle",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x2000005c",
+                "name": "hadc1.ErrorCode",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x2000003c",
+                "name": "hadc1.Init.ContinuousConvMode",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x20000034",
+                "name": "hadc1.Init.DataAlign",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000044",
+                "name": "hadc1.Init.DiscontinuousConvMode",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x2000004c",
+                "name": "hadc1.Init.ExternalTrigConv",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000040",
+                "name": "hadc1.Init.NbrOfConversion",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000048",
+                "name": "hadc1.Init.NbrOfDiscConversion",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000038",
+                "name": "hadc1.Init.ScanConvMode",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000030",
+                "name": "hadc1.Instance",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000054",
+                "name": "hadc1.Lock",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x20000058",
+                "name": "hadc1.State",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x200000a0",
+                "name": "hdma_adc1.ChannelIndex",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x2000009c",
+                "name": "hdma_adc1.DmaBaseAddress",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000098",
+                "name": "hdma_adc1.ErrorCode",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000064",
+                "name": "hdma_adc1.Init.Direction",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000074",
+                "name": "hdma_adc1.Init.MemDataAlignment",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x2000006c",
+                "name": "hdma_adc1.Init.MemInc",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000078",
+                "name": "hdma_adc1.Init.Mode",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000070",
+                "name": "hdma_adc1.Init.PeriphDataAlignment",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000068",
+                "name": "hdma_adc1.Init.PeriphInc",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x2000007c",
+                "name": "hdma_adc1.Init.Priority",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000060",
+                "name": "hdma_adc1.Instance",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000080",
+                "name": "hdma_adc1.Lock",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x20000084",
+                "name": "hdma_adc1.Parent",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000081",
+                "name": "hdma_adc1.State",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x20000094",
+                "name": "hdma_adc1.XferAbortCallback",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000088",
+                "name": "hdma_adc1.XferCpltCallback",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000090",
+                "name": "hdma_adc1.XferErrorCallback",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x2000008c",
+                "name": "hdma_adc1.XferHalfCpltCallback",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000008",
+                "name": "LEDs",
+                "type": 1
+            },
+            {
+                "address": "0x20000000",
+                "name": "Message[0]",
+                "type": 2
+            },
+            {
+                "address": "0x20000001",
+                "name": "Message[1]",
+                "type": 2
+            },
+            {
+                "address": "0x20000002",
+                "name": "Message[2]",
+                "type": 2
+            },
+            {
+                "address": "0x20000003",
+                "name": "Message[3]",
+                "type": 2
+            },
+            {
+                "address": "0x20000004",
+                "name": "Message[4]",
+                "type": 2
+            },
+            {
+                "address": "0x08001710",
+                "name": "SegmentMultiplex[0]",
+                "type": 1
+            },
+            {
+                "address": "0x08001711",
+                "name": "SegmentMultiplex[1]",
+                "type": 1
+            },
+            {
+                "address": "0x08001712",
+                "name": "SegmentMultiplex[2]",
+                "type": 1
+            },
+            {
+                "address": "0x08001713",
+                "name": "SegmentMultiplex[3]",
+                "type": 1
+            },
+            {
+                "address": "0x20000009",
+                "name": "Segments[0]",
+                "type": 1
+            },
+            {
+                "address": "0x2000000a",
+                "name": "Segments[1]",
+                "type": 1
+            },
+            {
+                "address": "0x2000000b",
+                "name": "Segments[2]",
+                "type": 1
+            },
+            {
+                "address": "0x2000000c",
+                "name": "Segments[3]",
+                "type": 1
+            },
+            {
+                "address": "0x20000020",
+                "name": "SystemCoreClock",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x2000001c",
+                "name": "uwTick",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000014",
+                "name": "uwTickFreq",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x20000018",
+                "name": "uwTickPrio",
+                "type": 5,
+                "checked": false
+            },
+            {
+                "address": "0x20000024",
+                "name": "Vals[0]",
+                "type": 5,
+                "checked": true
+            },
+            {
+                "address": "0x20000028",
+                "name": "Vals[1]",
+                "type": 5,
+                "checked": true
+            },
+            {
+                "address": "0x2000002c",
+                "name": "Vals[2]",
+                "type": 5,
+                "checked": true
+            }
+        ],
+        "expand": true,
+        "filename": "TestCubeMonitor.axf",
+        "exeModifiedTime": 1589990956431,
+        "configLastUpdate": 1589991016726
+    },
+    {
+        "id": "f56b71ea.03878",
+        "type": "exe-config",
+        "z": "",
+        "name": "CubeEditorTest",
+        "exefile": "D:\\Access\\Desktop\\test\\TestCubeMonitor\\MDK-ARM\\TestCubeMonitor\\TestCubeMonitor.axf",
+        "exefolder": "D:\\Access\\Desktop\\test\\TestCubeMonitor\\MDK-ARM\\TestCubeMonitor",
+        "exevariablelist": [
+            {
+                "address": "0x08001794",
+                "name": "AHBPrescTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x0800179e",
+                "name": "AHBPrescTable[10]",
+                "type": 1
+            },
+            {
+                "address": "0x0800179f",
+                "name": "AHBPrescTable[11]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a0",
+                "name": "AHBPrescTable[12]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a1",
+                "name": "AHBPrescTable[13]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a2",
+                "name": "AHBPrescTable[14]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a3",
+                "name": "AHBPrescTable[15]",
+                "type": 1
+            },
+            {
+                "address": "0x08001795",
+                "name": "AHBPrescTable[1]",
+                "type": 1
+            },
+            {
+                "address": "0x08001796",
+                "name": "AHBPrescTable[2]",
+                "type": 1
+            },
+            {
+                "address": "0x08001797",
+                "name": "AHBPrescTable[3]",
+                "type": 1
+            },
+            {
+                "address": "0x08001798",
+                "name": "AHBPrescTable[4]",
+                "type": 1
+            },
+            {
+                "address": "0x08001799",
+                "name": "AHBPrescTable[5]",
+                "type": 1
+            },
+            {
+                "address": "0x0800179a",
+                "name": "AHBPrescTable[6]",
+                "type": 1
+            },
+            {
+                "address": "0x0800179b",
+                "name": "AHBPrescTable[7]",
+                "type": 1
+            },
+            {
+                "address": "0x0800179c",
+                "name": "AHBPrescTable[8]",
+                "type": 1
+            },
+            {
+                "address": "0x0800179d",
+                "name": "AHBPrescTable[9]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a4",
+                "name": "APBPrescTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a5",
+                "name": "APBPrescTable[1]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a6",
+                "name": "APBPrescTable[2]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a7",
+                "name": "APBPrescTable[3]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a8",
+                "name": "APBPrescTable[4]",
+                "type": 1
+            },
+            {
+                "address": "0x080017a9",
+                "name": "APBPrescTable[5]",
+                "type": 1
+            },
+            {
+                "address": "0x080017aa",
+                "name": "APBPrescTable[6]",
+                "type": 1
+            },
+            {
+                "address": "0x080017ab",
+                "name": "APBPrescTable[7]",
+                "type": 1
+            },
+            {
+                "address": "0x08001714",
+                "name": "AsciiTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x08001778",
+                "name": "AsciiTable[100]",
+                "type": 1
+            },
+            {
+                "address": "0x08001779",
+                "name": "AsciiTable[101]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177a",
+                "name": "AsciiTable[102]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177b",
+                "name": "AsciiTable[103]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177c",
+                "name": "AsciiTable[104]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177d",
+                "name": "AsciiTable[105]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177e",
+                "name": "AsciiTable[106]",
+                "type": 1
+            },
+            {
+                "address": "0x0800177f",
+                "name": "AsciiTable[107]",
+                "type": 1
+            },
+            {
+                "address": "0x08001780",
+                "name": "AsciiTable[108]",
+                "type": 1
+            },
+            {
+                "address": "0x08001781",
+                "name": "AsciiTable[109]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171e",
+                "name": "AsciiTable[10]",
+                "type": 1
+            },
+            {
+                "address": "0x08001782",
+                "name": "AsciiTable[110]",
+                "type": 1
+            },
+            {
+                "address": "0x08001783",
+                "name": "AsciiTable[111]",
+                "type": 1
+            },
+            {
+                "address": "0x08001784",
+                "name": "AsciiTable[112]",
+                "type": 1
+            },
+            {
+                "address": "0x08001785",
+                "name": "AsciiTable[113]",
+                "type": 1
+            },
+            {
+                "address": "0x08001786",
+                "name": "AsciiTable[114]",
+                "type": 1
+            },
+            {
+                "address": "0x08001787",
+                "name": "AsciiTable[115]",
+                "type": 1
+            },
+            {
+                "address": "0x08001788",
+                "name": "AsciiTable[116]",
+                "type": 1
+            },
+            {
+                "address": "0x08001789",
+                "name": "AsciiTable[117]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178a",
+                "name": "AsciiTable[118]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178b",
+                "name": "AsciiTable[119]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171f",
+                "name": "AsciiTable[11]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178c",
+                "name": "AsciiTable[120]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178d",
+                "name": "AsciiTable[121]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178e",
+                "name": "AsciiTable[122]",
+                "type": 1
+            },
+            {
+                "address": "0x0800178f",
+                "name": "AsciiTable[123]",
+                "type": 1
+            },
+            {
+                "address": "0x08001790",
+                "name": "AsciiTable[124]",
+                "type": 1
+            },
+            {
+                "address": "0x08001791",
+                "name": "AsciiTable[125]",
+                "type": 1
+            },
+            {
+                "address": "0x08001792",
+                "name": "AsciiTable[126]",
+                "type": 1
+            },
+            {
+                "address": "0x08001793",
+                "name": "AsciiTable[127]",
+                "type": 1
+            },
+            {
+                "address": "0x08001720",
+                "name": "AsciiTable[12]",
+                "type": 1
+            },
+            {
+                "address": "0x08001721",
+                "name": "AsciiTable[13]",
+                "type": 1
+            },
+            {
+                "address": "0x08001722",
+                "name": "AsciiTable[14]",
+                "type": 1
+            },
+            {
+                "address": "0x08001723",
+                "name": "AsciiTable[15]",
+                "type": 1
+            },
+            {
+                "address": "0x08001724",
+                "name": "AsciiTable[16]",
+                "type": 1
+            },
+            {
+                "address": "0x08001725",
+                "name": "AsciiTable[17]",
+                "type": 1
+            },
+            {
+                "address": "0x08001726",
+                "name": "AsciiTable[18]",
+                "type": 1
+            },
+            {
+                "address": "0x08001727",
+                "name": "AsciiTable[19]",
+                "type": 1
+            },
+            {
+                "address": "0x08001715",
+                "name": "AsciiTable[1]",
+                "type": 1
+            },
+            {
+                "address": "0x08001728",
+                "name": "AsciiTable[20]",
+                "type": 1
+            },
+            {
+                "address": "0x08001729",
+                "name": "AsciiTable[21]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172a",
+                "name": "AsciiTable[22]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172b",
+                "name": "AsciiTable[23]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172c",
+                "name": "AsciiTable[24]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172d",
+                "name": "AsciiTable[25]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172e",
+                "name": "AsciiTable[26]",
+                "type": 1
+            },
+            {
+                "address": "0x0800172f",
+                "name": "AsciiTable[27]",
+                "type": 1
+            },
+            {
+                "address": "0x08001730",
+                "name": "AsciiTable[28]",
+                "type": 1
+            },
+            {
+                "address": "0x08001731",
+                "name": "AsciiTable[29]",
+                "type": 1
+            },
+            {
+                "address": "0x08001716",
+                "name": "AsciiTable[2]",
+                "type": 1
+            },
+            {
+                "address": "0x08001732",
+                "name": "AsciiTable[30]",
+                "type": 1
+            },
+            {
+                "address": "0x08001733",
+                "name": "AsciiTable[31]",
+                "type": 1
+            },
+            {
+                "address": "0x08001734",
+                "name": "AsciiTable[32]",
+                "type": 1
+            },
+            {
+                "address": "0x08001735",
+                "name": "AsciiTable[33]",
+                "type": 1
+            },
+            {
+                "address": "0x08001736",
+                "name": "AsciiTable[34]",
+                "type": 1
+            },
+            {
+                "address": "0x08001737",
+                "name": "AsciiTable[35]",
+                "type": 1
+            },
+            {
+                "address": "0x08001738",
+                "name": "AsciiTable[36]",
+                "type": 1
+            },
+            {
+                "address": "0x08001739",
+                "name": "AsciiTable[37]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173a",
+                "name": "AsciiTable[38]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173b",
+                "name": "AsciiTable[39]",
+                "type": 1
+            },
+            {
+                "address": "0x08001717",
+                "name": "AsciiTable[3]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173c",
+                "name": "AsciiTable[40]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173d",
+                "name": "AsciiTable[41]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173e",
+                "name": "AsciiTable[42]",
+                "type": 1
+            },
+            {
+                "address": "0x0800173f",
+                "name": "AsciiTable[43]",
+                "type": 1
+            },
+            {
+                "address": "0x08001740",
+                "name": "AsciiTable[44]",
+                "type": 1
+            },
+            {
+                "address": "0x08001741",
+                "name": "AsciiTable[45]",
+                "type": 1
+            },
+            {
+                "address": "0x08001742",
+                "name": "AsciiTable[46]",
+                "type": 1
+            },
+            {
+                "address": "0x08001743",
+                "name": "AsciiTable[47]",
+                "type": 1
+            },
+            {
+                "address": "0x08001744",
+                "name": "AsciiTable[48]",
+                "type": 1
+            },
+            {
+                "address": "0x08001745",
+                "name": "AsciiTable[49]",
+                "type": 1
+            },
+            {
+                "address": "0x08001718",
+                "name": "AsciiTable[4]",
+                "type": 1
+            },
+            {
+                "address": "0x08001746",
+                "name": "AsciiTable[50]",
+                "type": 1
+            },
+            {
+                "address": "0x08001747",
+                "name": "AsciiTable[51]",
+                "type": 1
+            },
+            {
+                "address": "0x08001748",
+                "name": "AsciiTable[52]",
+                "type": 1
+            },
+            {
+                "address": "0x08001749",
+                "name": "AsciiTable[53]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174a",
+                "name": "AsciiTable[54]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174b",
+                "name": "AsciiTable[55]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174c",
+                "name": "AsciiTable[56]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174d",
+                "name": "AsciiTable[57]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174e",
+                "name": "AsciiTable[58]",
+                "type": 1
+            },
+            {
+                "address": "0x0800174f",
+                "name": "AsciiTable[59]",
+                "type": 1
+            },
+            {
+                "address": "0x08001719",
+                "name": "AsciiTable[5]",
+                "type": 1
+            },
+            {
+                "address": "0x08001750",
+                "name": "AsciiTable[60]",
+                "type": 1
+            },
+            {
+                "address": "0x08001751",
+                "name": "AsciiTable[61]",
+                "type": 1
+            },
+            {
+                "address": "0x08001752",
+                "name": "AsciiTable[62]",
+                "type": 1
+            },
+            {
+                "address": "0x08001753",
+                "name": "AsciiTable[63]",
+                "type": 1
+            },
+            {
+                "address": "0x08001754",
+                "name": "AsciiTable[64]",
+                "type": 1
+            },
+            {
+                "address": "0x08001755",
+                "name": "AsciiTable[65]",
+                "type": 1
+            },
+            {
+                "address": "0x08001756",
+                "name": "AsciiTable[66]",
+                "type": 1
+            },
+            {
+                "address": "0x08001757",
+                "name": "AsciiTable[67]",
+                "type": 1
+            },
+            {
+                "address": "0x08001758",
+                "name": "AsciiTable[68]",
+                "type": 1
+            },
+            {
+                "address": "0x08001759",
+                "name": "AsciiTable[69]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171a",
+                "name": "AsciiTable[6]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175a",
+                "name": "AsciiTable[70]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175b",
+                "name": "AsciiTable[71]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175c",
+                "name": "AsciiTable[72]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175d",
+                "name": "AsciiTable[73]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175e",
+                "name": "AsciiTable[74]",
+                "type": 1
+            },
+            {
+                "address": "0x0800175f",
+                "name": "AsciiTable[75]",
+                "type": 1
+            },
+            {
+                "address": "0x08001760",
+                "name": "AsciiTable[76]",
+                "type": 1
+            },
+            {
+                "address": "0x08001761",
+                "name": "AsciiTable[77]",
+                "type": 1
+            },
+            {
+                "address": "0x08001762",
+                "name": "AsciiTable[78]",
+                "type": 1
+            },
+            {
+                "address": "0x08001763",
+                "name": "AsciiTable[79]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171b",
+                "name": "AsciiTable[7]",
+                "type": 1
+            },
+            {
+                "address": "0x08001764",
+                "name": "AsciiTable[80]",
+                "type": 1
+            },
+            {
+                "address": "0x08001765",
+                "name": "AsciiTable[81]",
+                "type": 1
+            },
+            {
+                "address": "0x08001766",
+                "name": "AsciiTable[82]",
+                "type": 1
+            },
+            {
+                "address": "0x08001767",
+                "name": "AsciiTable[83]",
+                "type": 1
+            },
+            {
+                "address": "0x08001768",
+                "name": "AsciiTable[84]",
+                "type": 1
+            },
+            {
+                "address": "0x08001769",
+                "name": "AsciiTable[85]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176a",
+                "name": "AsciiTable[86]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176b",
+                "name": "AsciiTable[87]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176c",
+                "name": "AsciiTable[88]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176d",
+                "name": "AsciiTable[89]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171c",
+                "name": "AsciiTable[8]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176e",
+                "name": "AsciiTable[90]",
+                "type": 1
+            },
+            {
+                "address": "0x0800176f",
+                "name": "AsciiTable[91]",
+                "type": 1
+            },
+            {
+                "address": "0x08001770",
+                "name": "AsciiTable[92]",
+                "type": 1
+            },
+            {
+                "address": "0x08001771",
+                "name": "AsciiTable[93]",
+                "type": 1
+            },
+            {
+                "address": "0x08001772",
+                "name": "AsciiTable[94]",
+                "type": 1
+            },
+            {
+                "address": "0x08001773",
+                "name": "AsciiTable[95]",
+                "type": 1
+            },
+            {
+                "address": "0x08001774",
+                "name": "AsciiTable[96]",
+                "type": 1
+            },
+            {
+                "address": "0x08001775",
+                "name": "AsciiTable[97]",
+                "type": 1
+            },
+            {
+                "address": "0x08001776",
+                "name": "AsciiTable[98]",
+                "type": 1
+            },
+            {
+                "address": "0x08001777",
+                "name": "AsciiTable[99]",
+                "type": 1
+            },
+            {
+                "address": "0x0800171d",
+                "name": "AsciiTable[9]",
+                "type": 1
+            },
+            {
+                "address": "0x20000050",
+                "name": "hadc1.DMA_Handle",
+                "type": 5
+            },
+            {
+                "address": "0x2000005c",
+                "name": "hadc1.ErrorCode",
+                "type": 5
+            },
+            {
+                "address": "0x2000003c",
+                "name": "hadc1.Init.ContinuousConvMode",
+                "type": 2
+            },
+            {
+                "address": "0x20000034",
+                "name": "hadc1.Init.DataAlign",
+                "type": 5
+            },
+            {
+                "address": "0x20000044",
+                "name": "hadc1.Init.DiscontinuousConvMode",
+                "type": 2
+            },
+            {
+                "address": "0x2000004c",
+                "name": "hadc1.Init.ExternalTrigConv",
+                "type": 5
+            },
+            {
+                "address": "0x20000040",
+                "name": "hadc1.Init.NbrOfConversion",
+                "type": 5
+            },
+            {
+                "address": "0x20000048",
+                "name": "hadc1.Init.NbrOfDiscConversion",
+                "type": 5
+            },
+            {
+                "address": "0x20000038",
+                "name": "hadc1.Init.ScanConvMode",
+                "type": 5
+            },
+            {
+                "address": "0x20000030",
+                "name": "hadc1.Instance",
+                "type": 5
+            },
+            {
+                "address": "0x20000054",
+                "name": "hadc1.Lock",
+                "type": 2
+            },
+            {
+                "address": "0x20000058",
+                "name": "hadc1.State",
+                "type": 5
+            },
+            {
+                "address": "0x200000a0",
+                "name": "hdma_adc1.ChannelIndex",
+                "type": 5
+            },
+            {
+                "address": "0x2000009c",
+                "name": "hdma_adc1.DmaBaseAddress",
+                "type": 5
+            },
+            {
+                "address": "0x20000098",
+                "name": "hdma_adc1.ErrorCode",
+                "type": 5
+            },
+            {
+                "address": "0x20000064",
+                "name": "hdma_adc1.Init.Direction",
+                "type": 5
+            },
+            {
+                "address": "0x20000074",
+                "name": "hdma_adc1.Init.MemDataAlignment",
+                "type": 5
+            },
+            {
+                "address": "0x2000006c",
+                "name": "hdma_adc1.Init.MemInc",
+                "type": 5
+            },
+            {
+                "address": "0x20000078",
+                "name": "hdma_adc1.Init.Mode",
+                "type": 5
+            },
+            {
+                "address": "0x20000070",
+                "name": "hdma_adc1.Init.PeriphDataAlignment",
+                "type": 5
+            },
+            {
+                "address": "0x20000068",
+                "name": "hdma_adc1.Init.PeriphInc",
+                "type": 5
+            },
+            {
+                "address": "0x2000007c",
+                "name": "hdma_adc1.Init.Priority",
+                "type": 5
+            },
+            {
+                "address": "0x20000060",
+                "name": "hdma_adc1.Instance",
+                "type": 5
+            },
+            {
+                "address": "0x20000080",
+                "name": "hdma_adc1.Lock",
+                "type": 2
+            },
+            {
+                "address": "0x20000084",
+                "name": "hdma_adc1.Parent",
+                "type": 5
+            },
+            {
+                "address": "0x20000081",
+                "name": "hdma_adc1.State",
+                "type": 2
+            },
+            {
+                "address": "0x20000094",
+                "name": "hdma_adc1.XferAbortCallback",
+                "type": 5
+            },
+            {
+                "address": "0x20000088",
+                "name": "hdma_adc1.XferCpltCallback",
+                "type": 5
+            },
+            {
+                "address": "0x20000090",
+                "name": "hdma_adc1.XferErrorCallback",
+                "type": 5
+            },
+            {
+                "address": "0x2000008c",
+                "name": "hdma_adc1.XferHalfCpltCallback",
+                "type": 5
+            },
+            {
+                "address": "0x20000008",
+                "name": "LEDs",
+                "type": 1
+            },
+            {
+                "address": "0x20000000",
+                "name": "Message[0]",
+                "type": 2,
+                "checked": true
+            },
+            {
+                "address": "0x20000001",
+                "name": "Message[1]",
+                "type": 2,
+                "checked": true
+            },
+            {
+                "address": "0x20000002",
+                "name": "Message[2]",
+                "type": 2,
+                "checked": true
+            },
+            {
+                "address": "0x20000003",
+                "name": "Message[3]",
+                "type": 2,
+                "checked": true
+            },
+            {
+                "address": "0x20000004",
+                "name": "Message[4]",
+                "type": 2,
+                "checked": false
+            },
+            {
+                "address": "0x08001710",
+                "name": "SegmentMultiplex[0]",
+                "type": 1
+            },
+            {
+                "address": "0x08001711",
+                "name": "SegmentMultiplex[1]",
+                "type": 1
+            },
+            {
+                "address": "0x08001712",
+                "name": "SegmentMultiplex[2]",
+                "type": 1
+            },
+            {
+                "address": "0x08001713",
+                "name": "SegmentMultiplex[3]",
+                "type": 1
+            },
+            {
+                "address": "0x20000009",
+                "name": "Segments[0]",
+                "type": 1
+            },
+            {
+                "address": "0x2000000a",
+                "name": "Segments[1]",
+                "type": 1
+            },
+            {
+                "address": "0x2000000b",
+                "name": "Segments[2]",
+                "type": 1
+            },
+            {
+                "address": "0x2000000c",
+                "name": "Segments[3]",
+                "type": 1
+            },
+            {
+                "address": "0x20000020",
+                "name": "SystemCoreClock",
+                "type": 5
+            },
+            {
+                "address": "0x2000001c",
+                "name": "uwTick",
+                "type": 5
+            },
+            {
+                "address": "0x20000014",
+                "name": "uwTickFreq",
+                "type": 2
+            },
+            {
+                "address": "0x20000018",
+                "name": "uwTickPrio",
+                "type": 5
+            },
+            {
+                "address": "0x20000024",
+                "name": "Vals[0]",
+                "type": 5
+            },
+            {
+                "address": "0x20000028",
+                "name": "Vals[1]",
+                "type": 5
+            },
+            {
+                "address": "0x2000002c",
+                "name": "Vals[2]",
+                "type": 5
+            }
+        ],
+        "expand": true,
+        "filename": "TestCubeMonitor.axf",
+        "exeModifiedTime": 1589990956431,
+        "configLastUpdate": 1589991196353
+    },
+    {
+        "id": "4b293066.621a8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

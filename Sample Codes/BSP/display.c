@@ -63,10 +63,10 @@ void DisplayStringWithDP(char* text, int dpLoc)
       Segments[i] = 0;
       continue;
     }
-    uint8_t dp = dpLoc == i ? AsciiTable['.'] : 0x00;
-    Segments[i] &= AsciiTable[*text] | dp;
-    Segments[i] |= AsciiTable[*text] | dp;
-    text++;
+    uint8_t dp = (dpLoc == i || *(text+1) == '.') ? AsciiTable['.'] : 0x00;
+    Segments[i] = AsciiTable[*text] | dp;
+		if(*text != '.' && *(text+1) == '.') text++;
+		text++;
   }
 }
 
